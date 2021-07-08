@@ -15,7 +15,7 @@ impl InstanceService {
             ApiRequest::new(format!("{}{}", ENDPOINT, "list"), None, None)?;
         let instances = api_request.get()?;
         let mut table = Table::new();
-        table.set_titles(row!["id", "name", "workload_id"]);
+        table.set_titles(row!["id", "name", "status"]);
         table.set_format(*format::consts::FORMAT_NO_BORDER_LINE_SEPARATOR);
         for instance in instances.iter() {
             let id = &instance["id"];
